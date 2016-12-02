@@ -2,10 +2,8 @@ package com.league.interactive.itl;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,11 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.league.interactive.itl.models.DummyContent;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
-        TournamentsFragment.OnFragmentInteractionListener {
+        TournamentsFragment.OnFragmentInteractionListener,
+        RankingsFragment.OnListFragmentInteractionListener {
     private Toolbar toolbar;
 
     @Override
@@ -32,15 +34,6 @@ public class DrawerActivity extends AppCompatActivity
             changeFragment(HomeFragment.newInstance("1", "2"));
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -49,6 +42,7 @@ public class DrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_Home);
     }
 
     @Override
@@ -85,26 +79,26 @@ public class DrawerActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment = null;
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_Home) {
             fragment = HomeFragment.newInstance("1", "2");
             toolbar.setTitle("Home");
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_tournaments) {
             fragment = TournamentsFragment.newInstance("1", "2");
             toolbar.setTitle("Tournaments");
-        } else if (id == R.id.nav_slideshow) {
-            fragment = HomeFragment.newInstance("1", "2");
+        } else if (id == R.id.nav_ranking) {
+            fragment = RankingsFragment.newInstance(1);
             toolbar.setTitle("Ranking");
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_challenges) {
             fragment = TournamentsFragment.newInstance("1", "2");
             toolbar.setTitle("Free Games");
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_my_profile) {
             fragment = HomeFragment.newInstance("1", "2");
             toolbar.setTitle("News");
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_messages) {
             fragment = TournamentsFragment.newInstance("1", "2");
             toolbar.setTitle("Home");
         }
@@ -123,5 +117,10 @@ public class DrawerActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.RankPlayer item) {
+        Toast.makeText(getApplicationContext(), item.name, Toast.LENGTH_LONG).show();
     }
 }
