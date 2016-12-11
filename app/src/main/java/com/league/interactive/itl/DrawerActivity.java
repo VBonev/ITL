@@ -1,5 +1,6 @@
 package com.league.interactive.itl;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,12 +15,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.league.interactive.itl.models.DummyContent;
+import com.league.interactive.itl.screens.home.HomeFragment;
+import com.league.interactive.itl.models.RankPlayer;
+import com.league.interactive.itl.models.Tournament;
+import com.league.interactive.itl.adapters.RankingsFragment;
+import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
+import com.league.interactive.itl.screens.tournaments.details.TournamentDetailsActivity;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
-        TournamentsFragment.OnFragmentInteractionListener,
+        TournamentsFragment.OnListFragmentInteractionListener,
         RankingsFragment.OnListFragmentInteractionListener {
     private Toolbar toolbar;
 
@@ -90,7 +96,7 @@ public class DrawerActivity extends AppCompatActivity
             fragment = TournamentsFragment.newInstance("1", "2");
             toolbar.setTitle("Tournaments");
         } else if (id == R.id.nav_ranking) {
-            fragment = RankingsFragment.newInstance(1);
+            fragment = RankingsFragment.newInstance();
             toolbar.setTitle("Ranking");
         } else if (id == R.id.nav_challenges) {
             fragment = TournamentsFragment.newInstance("1", "2");
@@ -120,7 +126,13 @@ public class DrawerActivity extends AppCompatActivity
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.RankPlayer item) {
+    public void onListFragmentInteraction(RankPlayer item) {
         Toast.makeText(getApplicationContext(), item.name, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(Tournament tournament) {
+        Intent tournamentIntent = new Intent(this, TournamentDetailsActivity.class);
+        startActivity(tournamentIntent);
     }
 }

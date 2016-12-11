@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="unregisteredTournament">#9a6666</color>
+    <color name="registeredTournament">#659462</color>
+    <color name="tournament_background">#d1b5aa</color>
 </resources>

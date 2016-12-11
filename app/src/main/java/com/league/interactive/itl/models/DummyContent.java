@@ -14,60 +14,72 @@ import java.util.Random;
  */
 public class DummyContent {
 
-    /**
-     * An array of sample (dummy) items.
-     */
-    public static final List<RankPlayer> ITEMS = new ArrayList<RankPlayer>();
-
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
-    public static final Map<String, RankPlayer> ITEM_MAP = new HashMap<String, RankPlayer>();
-
     private static final int COUNT = 25;
 
-    static {
+    public static List<RankPlayer> getDummyRankItems() {
+        final List<RankPlayer> rankPlayers = new ArrayList<>();
+
         // Add some sample items.
         for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
+            rankPlayers.add(createDummyRank(i));
         }
+        return rankPlayers;
+
     }
 
-    private static void addItem(RankPlayer item) {
-        ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
-    }
+    public static List<Tournament> getDummyProgressTournament() {
+        final List<Tournament> tournaments = new ArrayList<>();
 
-    private static RankPlayer createDummyItem(int position) {
+        // Add some sample items.
+        for (int i = 1; i <= 4; i++) {
+            tournaments.add(createDummyProgressTournament(i));
+        }
+        return tournaments;
+    }
+    public static List<Tournament> getDummyITLTournament() {
+        final List<Tournament> tournaments = new ArrayList<>();
+
+        // Add some sample items.
+        for (int i = 1; i <= 6; i++) {
+            tournaments.add(createDummyITLTournament(i));
+        }
+        return tournaments;
+    }
+    public static List<Tournament> getDummyWeekendTournament() {
+        final List<Tournament> tournaments = new ArrayList<>();
+
+        // Add some sample items.
+        for (int i = 1; i <= 3; i++) {
+            tournaments.add(createDummyWeekendTournament(i));
+        }
+        return tournaments;
+    }
+    public static List<Tournament> getDummyPastTournament() {
+        final List<Tournament> tournaments = new ArrayList<>();
+
+        // Add some sample items.
+        for (int i = 1; i <= 20; i++) {
+            tournaments.add(createDummyPastTournament(i));
+        }
+        return tournaments;
+    }
+    private static RankPlayer createDummyRank(int position) {
         Random random = new Random();
         int rank = random.nextInt(10 - 1 + 1) + 1;
         int points = random.nextInt(2500 - 10 + 1) + 10;
         return new RankPlayer(String.valueOf(position), position, "Item " + position, "Sofia", rank, points);
     }
 
-    /**
-     * A dummy item representing a piece of position.
-     */
-    public static class RankPlayer {
-        public final String id;
-        public final int position;
-        public final String name;
-        public final String town;
-        public final int rank;
-        public final int points;
-
-        public RankPlayer(String id, int position, String name, String town, int rank, int points) {
-            this.id = id;
-            this.position = position;
-            this.name = name;
-            this.town = town;
-            this.rank = rank;
-            this.points = points;
-        }
-
-        @Override
-        public String toString() {
-            return name;
-        }
+    private static Tournament createDummyProgressTournament(int position) {
+        return new Tournament(String.valueOf(position), "14th Night Tournament ITL 250", "Diana Tennis Club", "14 Nov 2016", false);
+    }
+    private static Tournament createDummyITLTournament(int position) {
+        return new Tournament(String.valueOf(position), "6th Night Tournament ITL 125", "Diana Tennis Club", "14 Nov 2016", true);
+    }
+    private static Tournament createDummyWeekendTournament(int position) {
+        return new Tournament(String.valueOf(position), "5th Weekend Tournament", "Diana Tennis Club", "14 Nov 2016", false);
+    }
+    private static Tournament createDummyPastTournament(int position) {
+        return new Tournament(String.valueOf(position), "1th Night Tournament ITL 250", "Diana Tennis Club", "14 Nov 2015", false);
     }
 }

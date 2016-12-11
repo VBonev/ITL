@@ -1,4 +1,4 @@
-package com.league.interactive.itl;
+package com.league.interactive.itl.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,34 +6,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.league.interactive.itl.models.DummyContent.RankPlayer;
+import com.league.interactive.itl.R;
+import com.league.interactive.itl.models.RankPlayer;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link RankPlayer} and makes a call to the
- * specified {@link RankingsFragment.OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
+ * Created by Valio on 12/4/2016.
  */
-public class MyRankingsRecyclerViewAdapter extends RecyclerView.Adapter<MyRankingsRecyclerViewAdapter.ViewHolder> {
+
+public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.ViewHolder> {
 
     private final List<RankPlayer> mValues;
     private final RankingsFragment.OnListFragmentInteractionListener mListener;
 
-    public MyRankingsRecyclerViewAdapter(List<RankPlayer> items, RankingsFragment.OnListFragmentInteractionListener listener) {
+    public SchemeAdapter(List<RankPlayer> items, RankingsFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SchemeAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.ranking_item, parent, false);
-        return new ViewHolder(view);
+        return new SchemeAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final SchemeAdapter.ViewHolder holder, int position) {
         final RankPlayer rankPlayer = mValues.get(position);
         holder.rankPosition.setText(String.valueOf(rankPlayer.position));
         holder.rankName.setText(rankPlayer.name);

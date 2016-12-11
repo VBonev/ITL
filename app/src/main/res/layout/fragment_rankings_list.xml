@@ -85,6 +85,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.league.interactive.itl.RankingsFragment"
+        tools:context="com.league.interactive.itl.adapters.RankingsFragment"
         tools:listitem="@layout/ranking_item" />
 </LinearLayout>

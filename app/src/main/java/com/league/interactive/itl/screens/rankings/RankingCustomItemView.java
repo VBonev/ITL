@@ -1,4 +1,4 @@
-package com.league.interactive.itl.rankings;
+package com.league.interactive.itl.screens.screens.rankings;
 
 import android.content.Context;
 import android.os.Build;

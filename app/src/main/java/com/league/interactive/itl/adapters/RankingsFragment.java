@@ -1,4 +1,4 @@
-package com.league.interactive.itl;
+package com.league.interactive.itl.adapters;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.league.interactive.itl.R;
 import com.league.interactive.itl.models.DummyContent;
-import com.league.interactive.itl.models.DummyContent.RankPlayer;
+import com.league.interactive.itl.models.RankPlayer;
+import com.league.interactive.itl.screens.screens.rankings.RankingsAdapter;
 
 /**
  * A fragment representing a list of Items.
@@ -19,9 +21,6 @@ import com.league.interactive.itl.models.DummyContent.RankPlayer;
  * interface.
  */
 public class RankingsFragment extends Fragment {
-
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private OnListFragmentInteractionListener mListener;
 
@@ -34,10 +33,9 @@ public class RankingsFragment extends Fragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static RankingsFragment newInstance(int columnCount) {
+    public static RankingsFragment newInstance() {
         RankingsFragment fragment = new RankingsFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,7 +54,7 @@ public class RankingsFragment extends Fragment {
         Context context = view.getContext();
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new MyRankingsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+        recyclerView.setAdapter(new RankingsAdapter(DummyContent.getDummyRankItems(), mListener));
 
         return view;
     }
