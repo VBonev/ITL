@@ -1,4 +1,4 @@
-package com.league.interactive.itl;
+package com.league.interactive.pt;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.league.interactive.itl.models.DummyContent;
+import com.league.interactive.pt.models.DummyContent;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,

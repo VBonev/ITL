@@ -1,4 +1,4 @@
-package com.league.interactive.itl;
+package com.league.interactive.pt;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

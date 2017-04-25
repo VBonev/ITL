@@ -1,4 +1,4 @@
-package com.league.interactive.itl.models;
+package com.league.interactive.pt.models;
 
 import java.util.ArrayList;
 import java.util.HashMap;

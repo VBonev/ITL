@@ -1,4 +1,4 @@
-package com.league.interactive.itl;
+package com.league.interactive.pt;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.league.interactive.itl.models.DummyContent;
-import com.league.interactive.itl.models.DummyContent.RankPlayer;
+import com.league.interactive.pt.models.DummyContent;
+import com.league.interactive.pt.models.DummyContent.RankPlayer;
 
 /**
  * A fragment representing a list of Items.

@@ -1,4 +1,4 @@
-package com.league.interactive.itl;
+package com.league.interactive.pt;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.league.interactive.itl.models.DummyContent.RankPlayer;
+import com.league.interactive.pt.models.DummyContent.RankPlayer;
 
 import java.util.List;
 
