@@ -1,17 +1,21 @@
 package com.league.interactive.itl.models;
 
-/**
- * Created by Valio on 12/2/2016.
- */
+import com.google.gson.annotations.SerializedName;
 
 public class Tournament {
+
+    @SerializedName("id")
     public final String id;
+    @SerializedName("name")
     public final String name;
+    @SerializedName("location")
     public final String location;
+    @SerializedName("date")
     public final String date;
+    @SerializedName("registered")
     public final boolean registered;
 
-    public Tournament(String id, String name, String location, String date, boolean registered) {
+    Tournament(String id, String name, String location, String date, boolean registered) {
         this.id = id;
         this.name = name;
         this.location = location;

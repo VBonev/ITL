@@ -1,4 +1,4 @@
-package com.league.interactive.itl.screens.screens.rankings;
+package com.league.interactive.itl.screens.rankings;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
