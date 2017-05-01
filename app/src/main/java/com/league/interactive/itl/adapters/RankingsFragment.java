@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.league.interactive.itl.R;
 import com.league.interactive.itl.models.DummyContent;
 import com.league.interactive.itl.models.RankPlayer;
-import com.league.interactive.itl.screens.screens.rankings.RankingsAdapter;
+import com.league.interactive.itl.screens.rankings.RankingsAdapter;
 
 /**
  * A fragment representing a list of Items.

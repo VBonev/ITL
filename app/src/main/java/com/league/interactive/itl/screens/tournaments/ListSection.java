@@ -23,7 +23,6 @@ import java.util.List;
 public class ListSection extends LinearLayout {
 
     private static final int MILLISECONDS_PER_DP = 2; // how many milliseconds to show/hide 1 dp
-    private CustomLinearLayoutManager notScrollableManager;
     private TextView headerView;
     private TournamentsAdapter adapter;
     private RecyclerView recyclerView;
@@ -51,16 +50,16 @@ public class ListSection extends LinearLayout {
 
     private void initView(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.list_section, this, true);
-        headerView = (TextView) view.findViewById(R.id.header_list);
+        headerView = (TextView) view.findViewById(R.id.header_title);
         recyclerView = (RecyclerView) view.findViewById(R.id.accounts_recycler_view);
-        headerView.setOnClickListener(new OnClickListener() {
+        view.findViewById(R.id.header_list).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 showHideSection();
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        notScrollableManager = new CustomLinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        CustomLinearLayoutManager notScrollableManager = new CustomLinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setNestedScrollingEnabled(false);

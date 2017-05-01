@@ -35,6 +35,7 @@ import java.util.List;
 
 import com.league.interactive.itl.DrawerActivity;
 import com.league.interactive.itl.R;
+import com.league.interactive.itl.network.NetworkClient;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
+    private NetworkClient networkClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

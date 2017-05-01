@@ -11,6 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.league.interactive.itl.R;
+import com.league.interactive.itl.models.DummyModel;
+import com.league.interactive.itl.network.NetworkClient;
+
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -32,7 +42,7 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-
+    private NetworkClient networkClient;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -62,7 +72,21 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        try {
+            networkClient = new NetworkClient();
+            networkClient.getUserProfile().enqueue(new Callback<List<DummyModel>>() {
+                @Override
+                public void onResponse(Call<List<DummyModel>> call, Response<List<DummyModel>> response) {
 
+                }
+
+                @Override
+                public void onFailure(Call<List<DummyModel>> call, Throwable t) {
+                }
+            });
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+
+        }
     }
 
     @Override

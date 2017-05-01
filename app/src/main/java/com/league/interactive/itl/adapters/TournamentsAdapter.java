@@ -38,8 +38,8 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final Tournament tournament = tournaments.get(position);
         holder.tourName.setText(tournament.name);
-        holder.tourDate.setText(tournament.date);
-        holder.tourLocation.setText(tournament.location);
+//        holder.tourDate.setText(tournament.date);
+//        holder.tourLocation.setText(tournament.location);
         Context context = holder.mView.getContext();
         holder.mView.setBackgroundColor(tournament.registered ? ContextCompat.getColor(context, R.color.registeredTournament) :
                 ContextCompat.getColor(context, R.color.unregisteredTournament));
@@ -61,18 +61,18 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
         return tournaments.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView tourName;
-        public final TextView tourLocation;
-        public final TextView tourDate;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final View mView;
+        final TextView tourName;
+//        final TextView tourLocation;
+//        final TextView tourDate;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
             tourName = (TextView) view.findViewById(R.id.tour_name);
-            tourLocation = (TextView) view.findViewById(R.id.tour_location);
-            tourDate = (TextView) view.findViewById(R.id.tour_date);
+//            tourLocation = (TextView) view.findViewById(R.id.tour_location);
+//            tourDate = (TextView) view.findViewById(R.id.tour_date);
         }
 
         @Override

@@ -9,6 +9,8 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.league.interactive.itl.models.DummyModel;
+import com.league.interactive.itl.models.RankPlayer;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -20,7 +22,7 @@ import static okhttp3.logging.HttpLoggingInterceptor.Level.BODY;
 public class NetworkClient {
 
     private Retrofit retrofit;
-    private static final String BASE_URL = "https://maps.googleapis.com";
+    private static final String BASE_URL = "http://pt.tennisportal.bg";
 
     public NetworkClient() throws NoSuchAlgorithmException, KeyManagementException {
 
@@ -28,7 +30,7 @@ public class NetworkClient {
         builder.addInterceptor(new HttpLoggingInterceptor().setLevel(BODY));
         okhttp3.OkHttpClient client = builder.build();
 
-        Gson gson = new GsonBuilder().registerTypeAdapter(new TypeToken<List<BarModel>>() {
+        Gson gson = new GsonBuilder().registerTypeAdapter(new TypeToken<List<DummyModel>>() {
         }.getType(), new RankPlayerJsonDeserializer()).disableHtmlEscaping().create();
 
         retrofit = new Retrofit.Builder()
@@ -38,20 +40,10 @@ public class NetworkClient {
                 .build();
     }
 
-    /**
-     *
-     * @param location
-     * @param radius
-     * @param type
-     * @param apiKey
-     * @return
-     */
-    public Call<List<BarModel>> getListBars(final String location,
-                                            final int radius,
-                                            final String type,
-                                            final String apiKey) {
-        BarEndpoint barEndpoint = retrofit.create(BarEndpoint.class);
-        return barEndpoint.list(location, radius, type, apiKey);
+
+    public Call<List<DummyModel>> getUserProfile() {
+        RankPlayerEndpoint rankPlayerEndpoint = retrofit.create(RankPlayerEndpoint.class);
+        return rankPlayerEndpoint.list();
     }
 
 }
