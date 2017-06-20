@@ -11,22 +11,22 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-        <com.league.interactive.itl.screens.tournaments.ListSection
+        <com.league.interactive.itl.customviews.ListSection
             android:id="@+id/in_progress_tour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.league.interactive.itl.screens.tournaments.ListSection
+        <com.league.interactive.itl.customviews.ListSection
             android:id="@+id/itl_tour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.league.interactive.itl.screens.tournaments.ListSection
+        <com.league.interactive.itl.customviews.ListSection
             android:id="@+id/weekend_tour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.league.interactive.itl.screens.tournaments.ListSection
+        <com.league.interactive.itl.customviews.ListSection
             android:id="@+id/past_tour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

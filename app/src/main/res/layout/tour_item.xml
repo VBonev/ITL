@@ -1,26 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:layout_marginBottom="7dp"
-    android:background="@color/tour_back"
+    android:layout_height="100dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:orientation="horizontal"
-    android:gravity="center_vertical">
+    android:layout_marginTop="20dp"
+    android:background="@android:color/white"
+    android:elevation="4dp"
+    android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/tennis" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tour_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/tour_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/list_item_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/phase_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Phase"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/list_item_label"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/phase_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="1/8 Final"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/list_item_value"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/host_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Host"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/list_item_label"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/host_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="TK Diana"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/list_item_value"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/surface_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Surface"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/list_item_label"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/surface_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Clay"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/list_item_value"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/players_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Reg. Players"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/list_item_label"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/players_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="28"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/list_item_value"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="8dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tabs_selected_text" />
 </LinearLayout>
-

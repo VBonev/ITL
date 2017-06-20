@@ -38,9 +38,5 @@
             android:src="@drawable/arrow" />
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/accounts_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+    <include layout="@layout/tournaments_view" />
 </LinearLayout>

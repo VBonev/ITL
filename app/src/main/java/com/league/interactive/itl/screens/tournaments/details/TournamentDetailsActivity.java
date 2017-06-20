@@ -16,12 +16,15 @@ import android.view.ViewGroup;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.league.interactive.itl.R;
+import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
 import com.league.interactive.itl.models.RankPlayer;
 import com.league.interactive.itl.models.Tournament;
 import com.league.interactive.itl.adapters.RankingsFragment;
-import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
+import com.league.interactive.itl.screens.tournament.LeaguesFragment;
 
-public class TournamentDetailsActivity extends AppCompatActivity implements RankingsFragment.OnListFragmentInteractionListener, TournamentsFragment.OnListFragmentInteractionListener {
+public class TournamentDetailsActivity extends AppCompatActivity
+        implements RankingsFragment.OnListFragmentInteractionListener,
+        OnListFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -41,7 +44,7 @@ public class TournamentDetailsActivity extends AppCompatActivity implements Rank
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tournament_details);
+        setContentView(R.layout.pager_view);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -68,16 +71,18 @@ public class TournamentDetailsActivity extends AppCompatActivity implements Rank
 
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
-              finish();
+                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -125,7 +130,7 @@ public class TournamentDetailsActivity extends AppCompatActivity implements Rank
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if (position == 1) {
-                return TournamentsFragment.newInstance("1", "2");
+                return LeaguesFragment.newInstance("1", "2");
             }
             if (position == 2) {
                 return RankingsFragment.newInstance();

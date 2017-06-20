@@ -1,4 +1,4 @@
-package com.league.interactive.itl.screens.tournaments;
+package com.league.interactive.itl.customviews;
 
 
 import android.annotation.TargetApi;
@@ -15,7 +15,9 @@ import android.widget.TextView;
 
 import com.league.interactive.itl.R;
 import com.league.interactive.itl.adapters.TournamentsAdapter;
+import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
 import com.league.interactive.itl.models.Tournament;
+import com.league.interactive.itl.screens.tournament.LeaguesFragment;
 import com.league.interactive.itl.utils.ViewUtils;
 
 import java.util.List;
@@ -51,7 +53,7 @@ public class ListSection extends LinearLayout {
     private void initView(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.list_section, this, true);
         headerView = (TextView) view.findViewById(R.id.header_title);
-        recyclerView = (RecyclerView) view.findViewById(R.id.accounts_recycler_view);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         view.findViewById(R.id.header_list).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,11 +75,11 @@ public class ListSection extends LinearLayout {
     }
 
     public void bindData(List<Tournament> tournaments,
-                         TournamentsFragment.OnListFragmentInteractionListener mListener,
+                         OnListFragmentInteractionListener mListener,
                          String title) {
         adapter.setTournaments(tournaments);
         recyclerView.setAdapter(adapter);
-        adapter.setmListener(mListener);
+        adapter.setListener(mListener);
         headerView.setText(title);
     }
 

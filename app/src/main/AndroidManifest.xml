@@ -16,8 +16,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".DrawerActivity"
-            android:screenOrientation="sensorPortrait"
             android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,9 +31,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".screens.login.LoginActivity"
-            android:label="@string/title_activity_login">
-
-        </activity>
+            android:label="@string/title_activity_login"></activity>
     </application>
 
 </manifest>

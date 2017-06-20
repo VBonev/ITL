@@ -1,4 +1,4 @@
-package com.league.interactive.itl.screens.tournaments;
+package com.league.interactive.itl.screens.tournament;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.league.interactive.itl.R;
+import com.league.interactive.itl.customviews.ListSection;
+import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
 import com.league.interactive.itl.models.DummyContent;
 import com.league.interactive.itl.models.Tournament;
 
@@ -15,12 +17,12 @@ import com.league.interactive.itl.models.Tournament;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link TournamentsFragment.OnListFragmentInteractionListener} interface
+ * {@link OnListFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link TournamentsFragment#newInstance} factory method to
+ * Use the {@link LeaguesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TournamentsFragment extends Fragment {
+public class LeaguesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +39,7 @@ public class TournamentsFragment extends Fragment {
     private ListSection weekendTour;
     private ListSection pastTour;
 
-    public TournamentsFragment() {
+    public LeaguesFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +49,11 @@ public class TournamentsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TournamentsFragment.
+     * @return A new instance of fragment LeaguesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TournamentsFragment newInstance(String param1, String param2) {
-        TournamentsFragment fragment = new TournamentsFragment();
+    public static LeaguesFragment newInstance(String param1, String param2) {
+        LeaguesFragment fragment = new LeaguesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -103,18 +105,4 @@ public class TournamentsFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(Tournament tournament);
-    }
 }

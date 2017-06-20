@@ -13,7 +13,7 @@ import java.util.Random;
  * TODO: Replace all uses of this class before publishing your app.
  */
 public class DummyContent {
-
+    static Random random = new Random();
     private static final int COUNT = 25;
 
     public static List<RankPlayer> getDummyRankItems() {
@@ -36,15 +36,17 @@ public class DummyContent {
         }
         return tournaments;
     }
+
     public static List<Tournament> getDummyITLTournament() {
         final List<Tournament> tournaments = new ArrayList<>();
 
         // Add some sample items.
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 20; i++) {
             tournaments.add(createDummyITLTournament(i));
         }
         return tournaments;
     }
+
     public static List<Tournament> getDummyWeekendTournament() {
         final List<Tournament> tournaments = new ArrayList<>();
 
@@ -54,6 +56,7 @@ public class DummyContent {
         }
         return tournaments;
     }
+
     public static List<Tournament> getDummyPastTournament() {
         final List<Tournament> tournaments = new ArrayList<>();
 
@@ -63,6 +66,7 @@ public class DummyContent {
         }
         return tournaments;
     }
+
     private static RankPlayer createDummyRank(int position) {
         Random random = new Random();
         int rank = random.nextInt(10 - 1 + 1) + 1;
@@ -71,15 +75,18 @@ public class DummyContent {
     }
 
     private static Tournament createDummyProgressTournament(int position) {
-        return new Tournament(String.valueOf(position), "14th Night Tournament ITL 250", "Diana Tennis Club", "14 Nov 2016", false);
+        return new Tournament(String.valueOf(position), position + "th Night Tournament ITL 250", "Diana Tennis Club", "14 Nov 2016", random.nextBoolean());
     }
+
     private static Tournament createDummyITLTournament(int position) {
-        return new Tournament(String.valueOf(position), "6th Night Tournament ITL 125", "Diana Tennis Club", "14 Nov 2016", true);
+        return new Tournament(String.valueOf(position), position + "th Night Tournament ITL 125", "Diana Tennis Club", "14 Nov 2016", random.nextBoolean());
     }
+
     private static Tournament createDummyWeekendTournament(int position) {
-        return new Tournament(String.valueOf(position), "5th Weekend Tournament", "Diana Tennis Club", "14 Nov 2016", false);
+        return new Tournament(String.valueOf(position), position + "th Weekend Tournament", "Diana Tennis Club", "14 Nov 2016", random.nextBoolean());
     }
+
     private static Tournament createDummyPastTournament(int position) {
-        return new Tournament(String.valueOf(position), "1th Night Tournament ITL 250", "Diana Tennis Club", "14 Nov 2015", false);
+        return new Tournament(String.valueOf(position), position + "th Night Tournament ITL 250", "Diana Tennis Club", "14 Nov 2015", random.nextBoolean());
     }
 }

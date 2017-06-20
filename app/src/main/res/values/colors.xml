@@ -7,4 +7,12 @@
     <color name="registeredTournament">#96ce92</color>
     <color name="tournament_background">#d1b5aa</color>
     <color name="tour_back">#dee0e3</color>
+
+    <color name="list_background">#efefef</color>
+    <color name="tabs_text">#59034964</color>
+    <color name="tabs_selected_text">#048abf</color>
+
+    <color name="list_item_title">#7c7979</color>
+    <color name="list_item_label">#989292</color>
+    <color name="list_item_value">#7c7979</color>
 </resources>

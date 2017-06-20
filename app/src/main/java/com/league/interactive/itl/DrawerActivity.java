@@ -1,9 +1,9 @@
 package com.league.interactive.itl;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,17 +15,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.league.interactive.itl.screens.home.HomeFragment;
+import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
 import com.league.interactive.itl.models.RankPlayer;
 import com.league.interactive.itl.models.Tournament;
 import com.league.interactive.itl.adapters.RankingsFragment;
-import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
+import com.league.interactive.itl.screens.tournament.LeaguesFragment;
+import com.league.interactive.itl.screens.tournaments.ToursFragment;
 import com.league.interactive.itl.screens.tournaments.details.TournamentDetailsActivity;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        HomeFragment.OnFragmentInteractionListener,
-        TournamentsFragment.OnListFragmentInteractionListener,
+        OnListFragmentInteractionListener,
         RankingsFragment.OnListFragmentInteractionListener {
     private Toolbar toolbar;
 
@@ -35,15 +35,17 @@ public class DrawerActivity extends AppCompatActivity
         setContentView(R.layout.activity_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         if (savedInstanceState == null) {
-            changeFragment(HomeFragment.newInstance("1", "2"));
+            changeFragment(ToursFragment.newInstance());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -82,6 +84,26 @@ public class DrawerActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_head_to_head:
+                    changeFragment(RankingsFragment.newInstance());
+                    return true;
+                case R.id.navigation_messages:
+                    changeFragment(LeaguesFragment.newInstance("1", "2"));
+                    return true;
+                case R.id.navigation_notifications:
+                    changeFragment(RankingsFragment.newInstance());
+                    return true;
+            }
+            return false;
+        }
+
+    };
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -90,22 +112,22 @@ public class DrawerActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment = null;
         if (id == R.id.nav_Home) {
-            fragment = HomeFragment.newInstance("1", "2");
+            fragment = ToursFragment.newInstance();
             toolbar.setTitle("Home");
         } else if (id == R.id.nav_tournaments) {
-            fragment = TournamentsFragment.newInstance("1", "2");
+            fragment = LeaguesFragment.newInstance("1", "2");
             toolbar.setTitle("Tournaments");
         } else if (id == R.id.nav_ranking) {
             fragment = RankingsFragment.newInstance();
             toolbar.setTitle("Ranking");
         } else if (id == R.id.nav_challenges) {
-            fragment = TournamentsFragment.newInstance("1", "2");
+            fragment = LeaguesFragment.newInstance("1", "2");
             toolbar.setTitle("Free Games");
         } else if (id == R.id.nav_my_profile) {
-            fragment = HomeFragment.newInstance("1", "2");
+            fragment = RankingsFragment.newInstance();
             toolbar.setTitle("News");
         } else if (id == R.id.nav_messages) {
-            fragment = TournamentsFragment.newInstance("1", "2");
+            fragment = LeaguesFragment.newInstance("1", "2");
             toolbar.setTitle("Home");
         }
 
@@ -120,10 +142,6 @@ public class DrawerActivity extends AppCompatActivity
         getSupportFragmentManager().beginTransaction().replace(R.id.flContent, fragment).commit();
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 
     @Override
     public void onListFragmentInteraction(RankPlayer item) {

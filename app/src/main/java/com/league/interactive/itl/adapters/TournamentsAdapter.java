@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.league.interactive.itl.R;
+import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
 import com.league.interactive.itl.models.Tournament;
-import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
+import com.league.interactive.itl.screens.tournament.LeaguesFragment;
+import com.league.interactive.itl.screens.tournaments.ToursFragment;
 
 import java.util.List;
 
@@ -21,7 +23,7 @@ import java.util.List;
 public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.ViewHolder> {
 
     private List<Tournament> tournaments;
-    private TournamentsFragment.OnListFragmentInteractionListener mListener;
+    private OnListFragmentInteractionListener mListener;
 
     public TournamentsAdapter() {
 
@@ -41,8 +43,8 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
 //        holder.tourDate.setText(tournament.date);
 //        holder.tourLocation.setText(tournament.location);
         Context context = holder.mView.getContext();
-        holder.mView.setBackgroundColor(tournament.registered ? ContextCompat.getColor(context, R.color.registeredTournament) :
-                ContextCompat.getColor(context, R.color.unregisteredTournament));
+//        holder.mView.setBackgroundColor(tournament.registered ? ContextCompat.getColor(context, R.color.registeredTournament) :
+//                ContextCompat.getColor(context, R.color.unregisteredTournament));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +88,7 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
         notifyDataSetChanged();
     }
 
-    public void setmListener(TournamentsFragment.OnListFragmentInteractionListener mListener) {
+    public void setListener(OnListFragmentInteractionListener mListener) {
         this.mListener = mListener;
     }
 }
