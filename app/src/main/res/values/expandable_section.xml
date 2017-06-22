@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ExpandableSection">
+        <attr name="ExpandableSectionStyle" format="reference"/>
+
+        <!-- attributes for the header -->
+        <attr name="layout_header" format="reference"/>
+        <attr name="inflateId_header" format="reference"/>
+        <attr name="header_background" format="color"/>
+        <!-- attributes for the content -->
+        <attr name="layout_content" format="reference"/>
+        <attr name="inflateId_content" format="reference"/>
+        <attr name="content_background" format="color"/>
+        <attr name="support_elevation" format="boolean" />
+    </declare-styleable>
+</resources>

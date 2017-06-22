@@ -1,7 +1,6 @@
 package com.league.interactive.itl.screens.tournaments;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -12,30 +11,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.league.interactive.itl.R;
-import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
+import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.DummyContent;
-import com.league.interactive.itl.screens.tournaments.custom.CurrentTournamentsView;
-import com.league.interactive.itl.screens.tournaments.custom.PastTournamentsView;
-import com.league.interactive.itl.screens.tournaments.custom.UpcomingTournamentsView;
+import com.league.interactive.itl.screens.tournaments.customviews.CurrentTournamentsView;
+import com.league.interactive.itl.screens.tournaments.customviews.PastTournamentsView;
+import com.league.interactive.itl.screens.tournaments.customviews.UpcomingTournamentsView;
 
 
-public class ToursFragment extends Fragment {
-    private OnListFragmentInteractionListener mListener;
+public class TournamentsFragment extends Fragment {
+    private OnListItemInteractionListener mListener;
 
-    public static ToursFragment newInstance() {
-        return new ToursFragment();
+    public static TournamentsFragment newInstance() {
+        return new TournamentsFragment();
     }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.pager_view, container, false);
-        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getContext(), new PagerDrawingListener() {
-            @Override
-            public void onFinishedInstantiation() {
-
-            }
-        });
+        View view = inflater.inflate(R.layout.tournaments_overview_layout, container, false);
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getContext());
 
         // Set up the ViewPager with the sections adapter.
         ViewPager mViewPager = (ViewPager) view.findViewById(R.id.container);
@@ -49,8 +42,8 @@ public class ToursFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
+        if (context instanceof OnListItemInteractionListener) {
+            mListener = (OnListItemInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -59,15 +52,12 @@ public class ToursFragment extends Fragment {
 
     private class SectionsPagerAdapter extends PagerAdapter {
 
-
         private final Context context;
         private int childCount = 3;
-        private PagerDrawingListener pagerDrawingListener;
 
-        SectionsPagerAdapter(Context context, PagerDrawingListener pagerDrawingListener) {
+        SectionsPagerAdapter(Context context) {
             super();
             this.context = context;
-            this.pagerDrawingListener = pagerDrawingListener;
         }
 
         @Override
@@ -92,10 +82,6 @@ public class ToursFragment extends Fragment {
             }
 
             collection.addView(view, position);
-//            if (position == getCount() - 1) {
-//                notifyDataSetChanged();
-//                pagerDrawingListener.onFinishedInstantiation();
-//            }
             return view;
         }
 
@@ -139,10 +125,4 @@ public class ToursFragment extends Fragment {
         }
     }
 
-    /**
-     * Listener to notify the view when the adapter is done with inflating items
-     */
-    interface PagerDrawingListener {
-        void onFinishedInstantiation();
-    }
 }

@@ -13,20 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
-import com.league.interactive.itl.models.RankPlayer;
+import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
-import com.league.interactive.itl.adapters.RankingsFragment;
-import com.league.interactive.itl.screens.tournament.LeaguesFragment;
-import com.league.interactive.itl.screens.tournaments.ToursFragment;
+import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
 import com.league.interactive.itl.screens.tournaments.details.TournamentDetailsActivity;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        OnListFragmentInteractionListener,
-        RankingsFragment.OnListFragmentInteractionListener {
+        OnListItemInteractionListener {
     private Toolbar toolbar;
 
     @Override
@@ -34,12 +29,13 @@ public class DrawerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Tournaments");
         setSupportActionBar(toolbar);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         if (savedInstanceState == null) {
-            changeFragment(ToursFragment.newInstance());
+            changeFragment(TournamentsFragment.newInstance());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -84,6 +80,7 @@ public class DrawerActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -91,13 +88,10 @@ public class DrawerActivity extends AppCompatActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_head_to_head:
-                    changeFragment(RankingsFragment.newInstance());
                     return true;
                 case R.id.navigation_messages:
-                    changeFragment(LeaguesFragment.newInstance("1", "2"));
                     return true;
                 case R.id.navigation_notifications:
-                    changeFragment(RankingsFragment.newInstance());
                     return true;
             }
             return false;
@@ -112,22 +106,17 @@ public class DrawerActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment = null;
         if (id == R.id.nav_Home) {
-            fragment = ToursFragment.newInstance();
+            fragment = TournamentsFragment.newInstance();
             toolbar.setTitle("Home");
         } else if (id == R.id.nav_tournaments) {
-            fragment = LeaguesFragment.newInstance("1", "2");
             toolbar.setTitle("Tournaments");
         } else if (id == R.id.nav_ranking) {
-            fragment = RankingsFragment.newInstance();
             toolbar.setTitle("Ranking");
         } else if (id == R.id.nav_challenges) {
-            fragment = LeaguesFragment.newInstance("1", "2");
             toolbar.setTitle("Free Games");
         } else if (id == R.id.nav_my_profile) {
-            fragment = RankingsFragment.newInstance();
             toolbar.setTitle("News");
         } else if (id == R.id.nav_messages) {
-            fragment = LeaguesFragment.newInstance("1", "2");
             toolbar.setTitle("Home");
         }
 
@@ -142,15 +131,10 @@ public class DrawerActivity extends AppCompatActivity
         getSupportFragmentManager().beginTransaction().replace(R.id.flContent, fragment).commit();
     }
 
-
     @Override
-    public void onListFragmentInteraction(RankPlayer item) {
-        Toast.makeText(getApplicationContext(), item.name, Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onListFragmentInteraction(Tournament tournament) {
+    public void onListFragmentInteraction(Object object) {
         Intent tournamentIntent = new Intent(this, TournamentDetailsActivity.class);
+        tournamentIntent.putExtra(Tournament.TOURNAMENT_NAME, ((Tournament) object).name);
         startActivity(tournamentIntent);
     }
 }

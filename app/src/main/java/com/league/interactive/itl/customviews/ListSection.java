@@ -15,9 +15,8 @@ import android.widget.TextView;
 
 import com.league.interactive.itl.R;
 import com.league.interactive.itl.adapters.TournamentsAdapter;
-import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
+import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
-import com.league.interactive.itl.screens.tournament.LeaguesFragment;
 import com.league.interactive.itl.utils.ViewUtils;
 
 import java.util.List;
@@ -75,7 +74,7 @@ public class ListSection extends LinearLayout {
     }
 
     public void bindData(List<Tournament> tournaments,
-                         OnListFragmentInteractionListener mListener,
+                         OnListItemInteractionListener mListener,
                          String title) {
         adapter.setTournaments(tournaments);
         recyclerView.setAdapter(adapter);

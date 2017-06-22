@@ -3,7 +3,7 @@ package com.league.interactive.itl.models;
 import com.google.gson.annotations.SerializedName;
 
 public class Tournament {
-
+    public static final String TOURNAMENT_NAME = "tournament_name";
     @SerializedName("id")
     public final String id;
     @SerializedName("name")

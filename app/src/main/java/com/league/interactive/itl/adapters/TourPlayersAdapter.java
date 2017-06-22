@@ -7,39 +7,37 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.league.interactive.itl.R;
+import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.RankPlayer;
 
 import java.util.List;
 
 /**
- * Created by Valio on 12/4/2016.
+ * Created on 6/22/2017.
  */
 
-public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.ViewHolder> {
+public class TourPlayersAdapter extends RecyclerView.Adapter<TourPlayersAdapter.ViewHolder> {
 
     private final List<RankPlayer> mValues;
-    private final RankingsFragment.OnListFragmentInteractionListener mListener;
+    private final OnListItemInteractionListener mListener;
 
-    public SchemeAdapter(List<RankPlayer> items, RankingsFragment.OnListFragmentInteractionListener listener) {
+    public TourPlayersAdapter(List<RankPlayer> items, OnListItemInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
 
     @Override
-    public SchemeAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TourPlayersAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.ranking_item, parent, false);
-        return new SchemeAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final SchemeAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         final RankPlayer rankPlayer = mValues.get(position);
-        holder.rankPosition.setText(String.valueOf(rankPlayer.position));
-        holder.rankName.setText(rankPlayer.name);
-        holder.rankTown.setText(rankPlayer.town);
+//        holder.rankName.setText(rankPlayer.name);
         holder.rankITN.setText(String.valueOf(rankPlayer.rank));
-        holder.rankPoints.setText(String.valueOf(rankPlayer.points));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,22 +56,16 @@ public class SchemeAdapter extends RecyclerView.Adapter<SchemeAdapter.ViewHolder
         return mValues.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView rankPosition;
-        public final TextView rankName;
-        public final TextView rankTown;
-        public final TextView rankITN;
-        public final TextView rankPoints;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final View mView;
+        final TextView rankName;
+        final TextView rankITN;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
-            rankPosition = (TextView) view.findViewById(R.id.rank_position);
             rankName = (TextView) view.findViewById(R.id.rank_name);
-            rankTown = (TextView) view.findViewById(R.id.rank_town);
             rankITN = (TextView) view.findViewById(R.id.rank_itn);
-            rankPoints = (TextView) view.findViewById(R.id.rank_points);
         }
 
         @Override

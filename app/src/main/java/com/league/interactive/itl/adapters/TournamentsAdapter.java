@@ -1,7 +1,6 @@
 package com.league.interactive.itl.adapters;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.league.interactive.itl.R;
-import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
+import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
-import com.league.interactive.itl.screens.tournament.LeaguesFragment;
-import com.league.interactive.itl.screens.tournaments.ToursFragment;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ import java.util.List;
 public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.ViewHolder> {
 
     private List<Tournament> tournaments;
-    private OnListFragmentInteractionListener mListener;
+    private OnListItemInteractionListener mListener;
 
     public TournamentsAdapter() {
 
@@ -40,18 +37,12 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final Tournament tournament = tournaments.get(position);
         holder.tourName.setText(tournament.name);
-//        holder.tourDate.setText(tournament.date);
-//        holder.tourLocation.setText(tournament.location);
         Context context = holder.mView.getContext();
-//        holder.mView.setBackgroundColor(tournament.registered ? ContextCompat.getColor(context, R.color.registeredTournament) :
-//                ContextCompat.getColor(context, R.color.unregisteredTournament));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(tournament);
                 }
             }
@@ -66,15 +57,11 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
     class ViewHolder extends RecyclerView.ViewHolder {
         final View mView;
         final TextView tourName;
-//        final TextView tourLocation;
-//        final TextView tourDate;
 
         ViewHolder(View view) {
             super(view);
             mView = view;
             tourName = (TextView) view.findViewById(R.id.tour_name);
-//            tourLocation = (TextView) view.findViewById(R.id.tour_location);
-//            tourDate = (TextView) view.findViewById(R.id.tour_date);
         }
 
         @Override
@@ -88,7 +75,7 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
         notifyDataSetChanged();
     }
 
-    public void setListener(OnListFragmentInteractionListener mListener) {
+    public void setListener(OnListItemInteractionListener mListener) {
         this.mListener = mListener;
     }
 }

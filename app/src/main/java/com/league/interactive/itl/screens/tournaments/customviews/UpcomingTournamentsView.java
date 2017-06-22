@@ -1,4 +1,4 @@
-package com.league.interactive.itl.screens.tournaments.custom;
+package com.league.interactive.itl.screens.tournaments.customviews;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -7,12 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import com.league.interactive.itl.R;
 import com.league.interactive.itl.adapters.TournamentsAdapter;
-import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
+import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
 
 import java.util.List;
@@ -53,12 +52,8 @@ public class UpcomingTournamentsView extends FrameLayout {
         LayoutInflater.from(context).inflate(R.layout.tournaments_view, this, true);
     }
 
-    public boolean isShown() {
-        return recyclerView.getVisibility() == VISIBLE;
-    }
-
     public void bindData(List<Tournament> tournaments,
-                         OnListFragmentInteractionListener mListener) {
+                         OnListItemInteractionListener mListener) {
         TournamentsAdapter adapter = new TournamentsAdapter();
         adapter.setTournaments(tournaments);
         adapter.setListener(mListener);

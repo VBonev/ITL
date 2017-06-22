@@ -1,4 +1,4 @@
-package com.league.interactive.itl.screens.tournaments.custom;
+package com.league.interactive.itl.screens.tournaments.customviews;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -11,25 +11,25 @@ import android.widget.FrameLayout;
 
 import com.league.interactive.itl.R;
 import com.league.interactive.itl.adapters.TournamentsAdapter;
-import com.league.interactive.itl.interfaces.OnListFragmentInteractionListener;
+import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
 
 import java.util.List;
 
-public class CurrentTournamentsView extends FrameLayout {
+public class PastTournamentsView extends FrameLayout {
     private RecyclerView recyclerView;
 
-    public CurrentTournamentsView(Context context) {
+    public PastTournamentsView(Context context) {
         super(context);
         initView(context);
     }
 
-    public CurrentTournamentsView(Context context, @Nullable AttributeSet attrs) {
+    public PastTournamentsView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initView(context);
     }
 
-    public CurrentTournamentsView(Context context, @Nullable AttributeSet attrs, int defStyle) {
+    public PastTournamentsView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initView(context);
     }
@@ -48,12 +48,8 @@ public class CurrentTournamentsView extends FrameLayout {
         LayoutInflater.from(context).inflate(R.layout.tournaments_view, this, true);
     }
 
-    public boolean isShown() {
-        return recyclerView.getVisibility() == VISIBLE;
-    }
-
     public void bindData(List<Tournament> tournaments,
-                         OnListFragmentInteractionListener mListener) {
+                         OnListItemInteractionListener mListener) {
         TournamentsAdapter adapter = new TournamentsAdapter();
         adapter.setTournaments(tournaments);
         adapter.setListener(mListener);
