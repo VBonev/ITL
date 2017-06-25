@@ -1,8 +1,11 @@
 package com.league.interactive.itl.screens.tournaments.details.detailssection;
 
 import android.content.Context;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.league.interactive.itl.R;
@@ -13,6 +16,7 @@ import com.league.interactive.itl.customviews.ExpandableSection;
  */
 
 public class DetailsPageView extends LinearLayout {
+    private FloatingActionButton addResultButton;
     private TournamentDetailsSection tourInfoSection;
     private TournamentDetailsSection tourRulesSection;
 
@@ -36,6 +40,13 @@ public class DetailsPageView extends LinearLayout {
         super.onFinishInflate();
         tourInfoSection = new TournamentDetailsSection((ExpandableSection) findViewById(R.id.tour_info));
         tourRulesSection = new TournamentDetailsSection((ExpandableSection) findViewById(R.id.tour_rules));
+        addResultButton = (FloatingActionButton) findViewById(R.id.add_result_button);
+        addResultButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(DetailsPageView.this, "Add Result", Snackbar.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void initView(Context context) {
