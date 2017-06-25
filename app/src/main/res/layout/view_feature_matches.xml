@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/feature_matches_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/feature_matches_tabs"
+        android:layout_marginTop="10dp"
+        android:text="Feature Matches" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/feature_matches_tabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabIndicatorHeight="0dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/feature_matches_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/feature_matches_tabs" />
+</RelativeLayout>

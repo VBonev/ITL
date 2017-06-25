@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <LinearLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:orientation="vertical">
 
         <android.support.design.widget.TabLayout
-            android:id="@+id/tournaments_tabs"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            app:tabIndicatorColor="@color/tabs_selected_text"
-            app:tabTextColor="@color/tabs_text"
-            app:tabSelectedTextColor="@color/tabs_selected_text"
+            android:id="@+id/tabs"
             app:pstsShouldExpand="true"
-            app:pstsTextAllCaps="true" />
+            app:pstsTextAllCaps="true"
+            app:tabIndicatorColor="@color/tabs_selected_text"
+            app:tabSelectedTextColor="@color/tabs_selected_text"
+            app:tabTextColor="@color/tabs_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
 
         <android.support.v4.view.ViewPager
-            android:id="@+id/tournaments_pager"
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

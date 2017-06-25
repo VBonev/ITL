@@ -37,6 +37,24 @@ public class DummyContent {
         return tournaments;
     }
 
+    public static List<TournamentMatch> getDummyMatches(int matchCount) {
+        final List<TournamentMatch> matches = new ArrayList<>();
+
+        // Add some sample items.
+        for (int i = 1; i <= matchCount; i++) {
+            String status;
+            if (i % 2 == 0) {
+                status = TournamentMatch.FINISHED_STATUS;
+            } else if (i % 3 == 0) {
+                status = TournamentMatch.IN_PROGRESS_STATUS;
+            } else {
+                status = TournamentMatch.UPCOMING_STATUS;
+            }
+            matches.add(createDummyMatches(i, status));
+        }
+        return matches;
+    }
+
     public static List<Tournament> getDummyITLTournament() {
         final List<Tournament> tournaments = new ArrayList<>();
 
@@ -88,5 +106,9 @@ public class DummyContent {
 
     private static Tournament createDummyPastTournament(int position) {
         return new Tournament(String.valueOf(position), position + "th Night Tournament ITL 250", "Diana Tennis Club", "14 Nov 2015", random.nextBoolean());
+    }
+
+    private static TournamentMatch createDummyMatches(int position, String status) {
+        return new TournamentMatch(String.valueOf(position), "Tihomir Zhelev", "Evgeni Manov", null, null, status, "2:1");
     }
 }

@@ -15,4 +15,5 @@
     <color name="list_item_title">#7c7979</color>
     <color name="list_item_label">#989292</color>
     <color name="list_item_value">#7c7979</color>
+    <color name="fab_background">#2db8c2</color>
 </resources>

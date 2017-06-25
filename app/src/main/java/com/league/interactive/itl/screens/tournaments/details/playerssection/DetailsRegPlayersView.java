@@ -41,7 +41,7 @@ public class DetailsRegPlayersView extends CoordinatorLayout {
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        playersList = (RecyclerView) findViewById(R.id.recycler_view);
+        playersList = (RecyclerView) findViewById(R.id.reg_players_list);
         playersList.setItemAnimator(new DefaultItemAnimator());
         playersList.setNestedScrollingEnabled(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());

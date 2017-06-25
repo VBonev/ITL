@@ -31,9 +31,9 @@ public class TournamentsFragment extends Fragment {
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getContext());
 
         // Set up the ViewPager with the sections adapter.
-        ViewPager mViewPager = (ViewPager) view.findViewById(R.id.container);
+        ViewPager mViewPager = (ViewPager) view.findViewById(R.id.tournaments_pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        TabLayout tabs = (TabLayout) view.findViewById(R.id.tabs);
+        TabLayout tabs = (TabLayout) view.findViewById(R.id.tournaments_tabs);
         tabs.setupWithViewPager(mViewPager);
         return view;
     }

@@ -16,12 +16,18 @@ import com.league.interactive.itl.R;
 import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.DummyContent;
 import com.league.interactive.itl.models.Tournament;
+import com.league.interactive.itl.models.TournamentMatch;
 import com.league.interactive.itl.screens.tournaments.details.detailssection.DetailsPageView;
 import com.league.interactive.itl.screens.tournaments.details.playerssection.DetailsRegPlayersView;
-import com.league.interactive.itl.screens.tournaments.details.schemesection.DetailsSchemeView;
+import com.league.interactive.itl.screens.tournaments.details.schemesection.DetailsKnockoutView;
 
-public class TournamentDetailsActivity extends AppCompatActivity {
-    private OnListItemInteractionListener mListener=new OnListItemInteractionListener() {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TournamentDetailsActivity extends AppCompatActivity implements OnListItemInteractionListener {
+    private List<String> tabLabels;
+    private List<List<TournamentMatch>> matches;
+    private OnListItemInteractionListener mListener = new OnListItemInteractionListener() {
         @Override
         public void onListFragmentInteraction(Object object) {
 
@@ -31,6 +37,18 @@ public class TournamentDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tabLabels = new ArrayList<>();
+        matches = new ArrayList<>();
+        tabLabels.add(0, "1/16");
+        tabLabels.add(1, "1/8");
+        tabLabels.add(2, "1/4");
+        tabLabels.add(3, "1/2");
+        tabLabels.add(4, "Final");
+        matches.add(0, DummyContent.getDummyMatches(16));
+        matches.add(1, DummyContent.getDummyMatches(8));
+        matches.add(2, DummyContent.getDummyMatches(4));
+        matches.add(3, DummyContent.getDummyMatches(2));
+        matches.add(4, DummyContent.getDummyMatches(1));
         setContentView(R.layout.tournaments_details_overview_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_details);
         setSupportActionBar(toolbar);
@@ -56,6 +74,11 @@ public class TournamentDetailsActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.setupWithViewPager(mViewPager);
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(Object object) {
 
     }
 
@@ -85,9 +108,9 @@ public class TournamentDetailsActivity extends AppCompatActivity {
                     ((DetailsRegPlayersView) view).bindData(DummyContent.getDummyRankItems(), mListener);
                     break;
                 case 2:
-                    view = new DetailsSchemeView(context);
-                    ((DetailsSchemeView) view).onFinishInflate();
-                    ((DetailsSchemeView) view).bindData();
+                    view = new DetailsKnockoutView(context);
+                    ((DetailsKnockoutView) view).onFinishInflate();
+                    ((DetailsKnockoutView) view).bindData(tabLabels, matches);
                     break;
             }
 

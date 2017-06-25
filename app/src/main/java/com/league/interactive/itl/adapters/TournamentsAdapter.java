@@ -13,10 +13,6 @@ import com.league.interactive.itl.models.Tournament;
 
 import java.util.List;
 
-/**
- * Created by Valio on 12/2/2016.
- */
-
 public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.ViewHolder> {
 
     private List<Tournament> tournaments;
