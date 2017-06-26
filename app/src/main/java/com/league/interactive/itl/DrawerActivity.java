@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
+import com.league.interactive.itl.screens.messages.MessagesFragment;
 import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
 import com.league.interactive.itl.screens.tournaments.details.TournamentDetailsActivity;
 
@@ -86,14 +87,17 @@ public class DrawerActivity extends AppCompatActivity
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
             switch (item.getItemId()) {
                 case R.id.navigation_head_to_head:
                     return true;
                 case R.id.navigation_messages:
+                    changeFragment(MessagesFragment.newInstance());
                     return true;
                 case R.id.navigation_notifications:
                     return true;
             }
+
             return false;
         }
 

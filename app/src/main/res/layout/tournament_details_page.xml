@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+             xmlns:custom="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/list_background">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/list_background"
+
         tools:targetApi="lollipop">
 
 
@@ -54,37 +55,37 @@
                 android:layout_margin="10dp"
                 android:background="@android:color/black" />
 
-            <!--<LinearLayout-->
-            <!--android:id="@+id/result_wrapper"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="70dp"-->
-            <!--android:layout_marginBottom="10dp"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:background="@android:color/white"-->
-            <!--android:elevation="2dp"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:paddingLeft="10dp">-->
+            <LinearLayout
+                android:id="@+id/result_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
 
-            <!--<TextView-->
-            <!--android:id="@+id/result_label"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="Did you finish the match with Valentin?"-->
-            <!--android:textSize="14sp" />-->
+                <TextView
+                    android:id="@+id/result_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Did you finish the match with Valentin?"
+                    android:textSize="14sp" />
 
-            <!--<Button-->
-            <!--android:id="@+id/result_button"-->
-            <!--android:layout_width="40dp"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@android:color/white"-->
-            <!--android:text="Add Result"-->
-            <!--android:textSize="10sp" />-->
-            <!--</LinearLayout>-->
+                <Button
+                    android:id="@+id/result_button"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:text="Add Result"
+                    android:textSize="10sp" />
+            </LinearLayout>
 
             <com.league.interactive.itl.screens.tournaments.details.detailssection.FeatureMatchesView
                 android:id="@+id/feature_matches"
@@ -137,7 +138,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="bottom|right"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:background="@color/fab_background"
         android:src="@drawable/result" />
 

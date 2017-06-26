@@ -53,7 +53,6 @@ public class TournamentsFragment extends Fragment {
     private class SectionsPagerAdapter extends PagerAdapter {
 
         private final Context context;
-        private int childCount = 3;
 
         SectionsPagerAdapter(Context context) {
             super();
@@ -85,19 +84,9 @@ public class TournamentsFragment extends Fragment {
             return view;
         }
 
-        /**
-         * Change the child count of the pager - currently removing last page (Phone contacts).
-         * In case a more generic implementation is needed in future, rework the logic.
-         *
-         * @param childCount - the new child count (with one child less)
-         */
-        public void setChildCount(int childCount) {
-            this.childCount = childCount;
-        }
-
         @Override
         public int getCount() {
-            return childCount;
+            return 3;
         }
 
         @Override
