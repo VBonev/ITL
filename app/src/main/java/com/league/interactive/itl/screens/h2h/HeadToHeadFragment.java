@@ -11,10 +11,6 @@ import android.view.ViewGroup;
 import com.league.interactive.itl.R;
 import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 
-/**
- * Created by Valio on 6/27/2017.
- */
-
 public class HeadToHeadFragment extends Fragment {
     private OnListItemInteractionListener mListener;
     public static HeadToHeadFragment newInstance() {

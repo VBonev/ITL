@@ -1,6 +1,9 @@
 package com.league.interactive.itl.screens.tournaments.details;
 
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -11,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.league.interactive.itl.R;
 import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
@@ -18,6 +22,7 @@ import com.league.interactive.itl.models.DummyContent;
 import com.league.interactive.itl.models.Tournament;
 import com.league.interactive.itl.models.TournamentMatch;
 import com.league.interactive.itl.screens.tournaments.details.detailssection.DetailsPageView;
+import com.league.interactive.itl.screens.tournaments.details.detailssection.WeatherView;
 import com.league.interactive.itl.screens.tournaments.details.playerssection.DetailsRegPlayersView;
 import com.league.interactive.itl.screens.tournaments.details.schemesection.DetailsKnockoutView;
 
