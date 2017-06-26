@@ -85,6 +85,16 @@ public class DummyContent {
         return tournaments;
     }
 
+    public static List<Message> getDummyMessages() {
+        final List<Message> messages = new ArrayList<>();
+
+        // Add some sample items.
+        for (int i = 1; i <= 10; i++) {
+            messages.add(createDummyMessages());
+        }
+        return messages;
+    }
+
     private static RankPlayer createDummyRank(int position) {
         Random random = new Random();
         int rank = random.nextInt(10 - 1 + 1) + 1;
@@ -110,5 +120,9 @@ public class DummyContent {
 
     private static TournamentMatch createDummyMatches(int position, String status) {
         return new TournamentMatch(String.valueOf(position), "Tihomir Zhelev", "Evgeni Manov", null, null, status, "2:1");
+    }
+
+    private static Message createDummyMessages() {
+        return new Message(null, "Grigor Dimitrov", "Are you ready to lose again ? Are you ready to lose again ?", null, "Yesterday");
     }
 }

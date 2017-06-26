@@ -2,8 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_head_to_head"
+        android:id="@+id/navigation_tournaments"
         android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_tournaments" />
+    <item
+        android:id="@+id/navigation_head_to_head"
+        android:icon="@drawable/ice_menu_head"
         android:title="@string/title_head_to_head" />
 
     <item

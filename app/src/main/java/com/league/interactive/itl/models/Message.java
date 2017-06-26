@@ -8,14 +8,43 @@ import com.google.gson.annotations.SerializedName;
 
 public class Message {
     @SerializedName("id")
-    public final String id;
+    private final String id;
 
     @SerializedName("senderName")
-    public final String senderName;
-
+    private final String senderName;
+    @SerializedName("messageValue")
+    private final String messageValue;
     @SerializedName("senderAvatar")
-    public final String senderAvatar;
+    private final String senderAvatar;
 
-    @SerializedName("timeSend")
-    public final String timeSend;
+    @SerializedName("messageTime")
+    private final String messageTime;
+
+    public Message(String id, String senderName, String messageValue, String senderAvatar, String messageTime) {
+        this.id = id;
+        this.senderName = senderName;
+        this.messageValue = messageValue;
+        this.senderAvatar = senderAvatar;
+        this.messageTime = messageTime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public String getSenderAvatar() {
+        return senderAvatar;
+    }
+
+    public String getMessageTime() {
+        return messageTime;
+    }
+
+    public String getMessageValue() {
+        return messageValue;
+    }
 }

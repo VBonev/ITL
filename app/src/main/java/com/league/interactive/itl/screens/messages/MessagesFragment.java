@@ -3,6 +3,7 @@ package com.league.interactive.itl.screens.messages;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.league.interactive.itl.R;
+import com.league.interactive.itl.adapters.MessagesAdapter;
 import com.league.interactive.itl.adapters.TournamentsAdapter;
 import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.DummyContent;
@@ -21,6 +23,7 @@ import com.league.interactive.itl.models.DummyContent;
  */
 
 public class MessagesFragment extends Fragment {
+    private FloatingActionButton writeMessage;
     private OnListItemInteractionListener mListener;
     private RecyclerView recyclerView;
 
@@ -33,8 +36,9 @@ public class MessagesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.messages_layout, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        TournamentsAdapter adapter = new TournamentsAdapter();
-        adapter.setTournaments(DummyContent.getDummyITLTournament());
+        writeMessage= (FloatingActionButton) view.findViewById(R.id.message_button);
+        MessagesAdapter adapter = new MessagesAdapter();
+        adapter.setMessages(DummyContent.getDummyMessages());
         adapter.setListener(mListener);
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

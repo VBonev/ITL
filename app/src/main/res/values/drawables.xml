@@ -1,8 +1,22 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources >
     <item name="ic_menu_camera" type="drawable">@android:drawable/ic_menu_camera</item>
     <item name="ic_menu_gallery" type="drawable">@android:drawable/ic_menu_gallery</item>
     <item name="ic_menu_slideshow" type="drawable">@android:drawable/ic_menu_slideshow</item>
     <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>
     <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
+    <item name="ice_menu_head" type="drawable">@android:drawable/stat_sys_headset</item>
+    <item name="ice_menu_message" type="drawable">@android:drawable/ic_menu_call</item>
+
+    <item name="menu_tournaments" type="drawable">@android:drawable/ic_menu_week</item>
+    <item name="menu_ranking" type="drawable">@android:drawable/ic_menu_agenda</item>
+    <item name="menu_members" type="drawable">@android:drawable/ic_menu_add</item>
+    <item name="menu_achievements" type="drawable">@android:drawable/ic_menu_always_landscape_portrait</item>
+
+    <item name="menu_settings" type="drawable">@android:drawable/ic_menu_compass</item>
+    <item name="menu_rules" type="drawable">@android:drawable/ic_menu_info_details</item>
+    <item name="menu_invite_friends" type="drawable">@android:drawable/ic_menu_search</item>
+    <item name="menu_feedback" type="drawable">@android:drawable/ic_menu_share</item>
+    <item name="menu_rate" type="drawable">@android:drawable/ic_menu_more</item>
+    <item name="menu_log_out" type="drawable">@android:drawable/ic_menu_manage</item>
 </resources>

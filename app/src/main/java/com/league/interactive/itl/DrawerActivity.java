@@ -1,6 +1,7 @@
 package com.league.interactive.itl;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 
 import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
+import com.league.interactive.itl.screens.h2h.HeadToHeadFragment;
 import com.league.interactive.itl.screens.messages.MessagesFragment;
 import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
 import com.league.interactive.itl.screens.tournaments.details.TournamentDetailsActivity;
@@ -47,7 +49,7 @@ public class DrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_Home);
+        navigationView.setCheckedItem(R.id.nav_tournaments);
     }
 
     @Override
@@ -63,7 +65,7 @@ public class DrawerActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.drawer, menu);
+//        getMenuInflater().inflate(R.menu.drawer, menu);
         return true;
     }
 
@@ -89,7 +91,11 @@ public class DrawerActivity extends AppCompatActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
             switch (item.getItemId()) {
+                case R.id.navigation_tournaments:
+                    changeFragment(TournamentsFragment.newInstance());
+                    return true;
                 case R.id.navigation_head_to_head:
+                    changeFragment(HeadToHeadFragment.newInstance());
                     return true;
                 case R.id.navigation_messages:
                     changeFragment(MessagesFragment.newInstance());
@@ -108,23 +114,31 @@ public class DrawerActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Fragment fragment = null;
-        if (id == R.id.nav_Home) {
-            fragment = TournamentsFragment.newInstance();
-            toolbar.setTitle("Home");
-        } else if (id == R.id.nav_tournaments) {
+        if (id == R.id.nav_tournaments) {
             toolbar.setTitle("Tournaments");
         } else if (id == R.id.nav_ranking) {
             toolbar.setTitle("Ranking");
-        } else if (id == R.id.nav_challenges) {
-            toolbar.setTitle("Free Games");
-        } else if (id == R.id.nav_my_profile) {
-            toolbar.setTitle("News");
-        } else if (id == R.id.nav_messages) {
-            toolbar.setTitle("Home");
+        } else if (id == R.id.nav_members) {
+            toolbar.setTitle("Members");
+        } else if (id == R.id.nav_achievements) {
+            toolbar.setTitle("Achievements");
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.sportal.bg/news.php?news=671250"));
+            startActivity(browserIntent);
+        } else if (id == R.id.nav_settings) {
+            toolbar.setTitle("Settings");
+        } else if (id == R.id.nav_rules) {
+            toolbar.setTitle("Rules");
+        } else if (id == R.id.nav_invite_friends) {
+            toolbar.setTitle("Invite Friends");
+        } else if (id == R.id.nav_feedback) {
+            toolbar.setTitle("Feedback");
+        } else if (id == R.id.nav_rate_app) {
+            toolbar.setTitle("Rate app");
+        } else if (id == R.id.nav_log_out) {
+            toolbar.setTitle("Log out");
         }
 
-        changeFragment(fragment);
+//        changeFragment(fragment);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

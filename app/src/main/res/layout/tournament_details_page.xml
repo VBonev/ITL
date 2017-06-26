@@ -1,145 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:custom="http://schemas.android.com/apk/res-auto"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@color/list_background">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-    <ScrollView
+    android:background="@color/list_background"
+    tools:targetApi="lollipop">
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        tools:targetApi="lollipop">
+        <LinearLayout
+            android:id="@+id/follow_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:elevation="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
 
+            <TextView
+                android:id="@+id/follow_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Get notifications for this tournaments"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/follow_button"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/list_background"
+                android:text="Follow"
+                android:textSize="12sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_height="1px"
+            android:layout_margin="10dp"
+            android:background="@android:color/black" />
 
-            <LinearLayout
-                android:id="@+id/follow_wrapper"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+        <LinearLayout
+            android:id="@+id/result_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/result_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Did you finish the match with Valentin?"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/result_button"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
                 android:layout_marginRight="10dp"
-                android:elevation="2dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:id="@+id/follow_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Get notifications for this tournaments"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/follow_button"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:background="@color/list_background"
-                    android:text="Follow"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_margin="10dp"
-                android:background="@android:color/black" />
-
-            <LinearLayout
-                android:id="@+id/result_wrapper"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:background="@android:color/white"
-                android:elevation="2dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp">
-
-                <TextView
-                    android:id="@+id/result_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Did you finish the match with Valentin?"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/result_button"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/white"
-                    android:text="Add Result"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-            <com.league.interactive.itl.screens.tournaments.details.detailssection.FeatureMatchesView
-                android:id="@+id/feature_matches"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
-
-            <com.league.interactive.itl.screens.tournaments.details.detailssection.WeatherView
-                android:id="@+id/weather_forecast"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
-
-            <com.league.interactive.itl.customviews.ExpandableSection
-                android:id="@+id/tour_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:animateLayoutChanges="true"
-                android:elevation="2dp"
-                custom:inflateId_content="@+id/content_tour_info"
-                custom:inflateId_header="@+id/header_tour_info"
-                custom:layout_content="@layout/tour_info_section_content"
-                custom:layout_header="@layout/tour_section_header" />
-
-            <com.league.interactive.itl.customviews.ExpandableSection
-                android:id="@+id/tour_rules"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:animateLayoutChanges="true"
-                android:elevation="2dp"
-                custom:inflateId_content="@+id/content_tour_rules"
-                custom:inflateId_header="@+id/header_tour_rules"
-                custom:layout_content="@layout/tour_rules_section_content"
-                custom:layout_header="@layout/tour_section_header" />
+                android:text="Add Result"
+                android:textSize="10sp" />
         </LinearLayout>
-    </ScrollView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_result_button"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="10dp"
-        android:background="@color/fab_background"
-        android:src="@drawable/result" />
+        <com.league.interactive.itl.screens.tournaments.details.detailssection.FeatureMatchesView
+            android:id="@+id/feature_matches"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
-</FrameLayout>
+        <com.league.interactive.itl.screens.tournaments.details.detailssection.WeatherView
+            android:id="@+id/weather_forecast"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <com.league.interactive.itl.customviews.ExpandableSection
+            android:id="@+id/tour_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:animateLayoutChanges="true"
+            android:elevation="2dp"
+            custom:inflateId_content="@+id/content_tour_info"
+            custom:inflateId_header="@+id/header_tour_info"
+            custom:layout_content="@layout/tour_info_section_content"
+            custom:layout_header="@layout/tour_section_header" />
+
+        <com.league.interactive.itl.customviews.ExpandableSection
+            android:id="@+id/tour_rules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:animateLayoutChanges="true"
+            android:elevation="2dp"
+            custom:inflateId_content="@+id/content_tour_rules"
+            custom:inflateId_header="@+id/header_tour_rules"
+            custom:layout_content="@layout/tour_rules_section_content"
+            custom:layout_header="@layout/tour_section_header" />
+    </LinearLayout>
+</ScrollView>
