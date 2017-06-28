@@ -10,7 +10,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.league.interactive.itl.models.DummyModel;
-import com.league.interactive.itl.models.RankPlayer;
 
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;

@@ -19,11 +19,12 @@ import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
 import com.league.interactive.itl.screens.h2h.HeadToHeadFragment;
 import com.league.interactive.itl.screens.messages.MessagesFragment;
+import com.league.interactive.itl.screens.ranking.RankingFragment;
 import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
 import com.league.interactive.itl.screens.tournaments.details.TournamentDetailsActivity;
 
 public class DrawerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
+        implements NavigationView.OnNavigationItemSelectedListener, RankingFragment.OnRankListItemCLickListener,
         OnListItemInteractionListener {
     private Toolbar toolbar;
 
@@ -115,8 +116,10 @@ public class DrawerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_tournaments) {
+            changeFragment(TournamentsFragment.newInstance());
             toolbar.setTitle("Tournaments");
         } else if (id == R.id.nav_ranking) {
+            changeFragment(RankingFragment.newInstance());
             toolbar.setTitle("Ranking");
         } else if (id == R.id.nav_members) {
             toolbar.setTitle("Members");
@@ -138,7 +141,6 @@ public class DrawerActivity extends AppCompatActivity
             toolbar.setTitle("Log out");
         }
 
-//        changeFragment(fragment);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
