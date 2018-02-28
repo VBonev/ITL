@@ -30,8 +30,10 @@ public class NetworkClient {
         builder.addInterceptor(new HttpLoggingInterceptor().setLevel(BODY));
         okhttp3.OkHttpClient client = builder.build();
 
-        Gson gson = new GsonBuilder().registerTypeAdapter(new TypeToken<List<DummyModel>>() {
-        }.getType(), new RankPlayerJsonDeserializer()).disableHtmlEscaping().create();
+        Gson gson = new GsonBuilder().
+                registerTypeAdapter(new TypeToken<List<DummyModel>>(){}.getType(), new RankPlayerJsonDeserializer())
+                .disableHtmlEscaping()
+                .create();
 
         retrofit = new Retrofit.Builder()
                 .client(client)
