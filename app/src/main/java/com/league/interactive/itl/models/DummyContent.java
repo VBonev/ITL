@@ -1,5 +1,7 @@
 package com.league.interactive.itl.models;
 
+import com.league.interactive.itl.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -93,6 +95,16 @@ public class DummyContent {
         return messages;
     }
 
+    public static List<League> getDummyLeagues() {
+        final List<League> leagues = new ArrayList<>();
+
+        // Add some sample items.
+        for (int i = 1; i <= 10; i++) {
+            leagues.add(createDummyLeague(i));
+        }
+        return leagues;
+    }
+
     private static RankPlayer createDummyRank(int position) {
         Random random = new Random();
         int rank = random.nextInt(10 - 1 + 1) + 1;
@@ -122,5 +134,20 @@ public class DummyContent {
 
     private static Message createDummyMessages() {
         return new Message(null, "Grigor Dimitrov", "Are you ready to lose again ? Are you ready to lose again ?", null, "Yesterday");
+    }
+
+    private static League createDummyLeague(int position) {
+        return new League(String.valueOf(position),
+                "ITL",
+                "Interactive Tennis League: Вечерни турнири за аматьорите в България",
+                "Sofia",
+                new League.LeagueContacts("Ивайло Цанков",
+                        "0885767878",
+                        "eblio@sex.com",
+                        "http://www.interactive-tennis.com",
+                        "https://www.facebook.com/interactivetennis/"),
+                "",
+                "R.drawable.itl_logo",
+                R.drawable.itl_cover);
     }
 }

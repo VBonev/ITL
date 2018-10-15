@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/navigation_tournaments"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/ic_menu_camera"
         android:title="@string/title_tournaments" />
     <item
         android:id="@+id/navigation_head_to_head"

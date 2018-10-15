@@ -18,13 +18,16 @@ import android.view.MenuItem;
 import com.league.interactive.itl.interfaces.OnListItemInteractionListener;
 import com.league.interactive.itl.models.Tournament;
 import com.league.interactive.itl.screens.h2h.HeadToHeadFragment;
+import com.league.interactive.itl.screens.leagues.LeaguesFragment;
 import com.league.interactive.itl.screens.messages.MessagesFragment;
 import com.league.interactive.itl.screens.ranking.RankingFragment;
 import com.league.interactive.itl.screens.tournaments.TournamentsFragment;
 import com.league.interactive.itl.screens.tournaments.details.TournamentDetailsActivity;
 
 public class DrawerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, RankingFragment.OnRankListItemCLickListener,
+        implements NavigationView.OnNavigationItemSelectedListener,
+        RankingFragment.OnRankListItemCLickListener,
+        LeaguesFragment.OnLeaguListItemClickListener,
         OnListItemInteractionListener {
     private Toolbar toolbar;
 
@@ -32,7 +35,7 @@ public class DrawerActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Tournaments");
         setSupportActionBar(toolbar);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -115,7 +118,10 @@ public class DrawerActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        if (id == R.id.nav_tournaments) {
+        if (id == R.id.nav_leagues) {
+            changeFragment(LeaguesFragment.newInstance());
+            toolbar.setTitle(R.string.title_leagues);
+        } else if (id == R.id.nav_tournaments) {
             changeFragment(TournamentsFragment.newInstance());
             toolbar.setTitle("Tournaments");
         } else if (id == R.id.nav_ranking) {

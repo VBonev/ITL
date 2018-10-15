@@ -8,6 +8,7 @@
     <item name="ice_menu_head" type="drawable">@android:drawable/stat_sys_headset</item>
     <item name="ice_menu_message" type="drawable">@android:drawable/ic_menu_call</item>
 
+    <item name="menu_leagues" type="drawable">@android:drawable/ic_menu_compass</item>
     <item name="menu_tournaments" type="drawable">@android:drawable/ic_menu_week</item>
     <item name="menu_ranking" type="drawable">@android:drawable/ic_menu_agenda</item>
     <item name="menu_members" type="drawable">@android:drawable/ic_menu_add</item>
